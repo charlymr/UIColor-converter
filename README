@@ -1,0 +1,64 @@
+INSTALLATION: 
+=============
+
+UIColor+convertAddition.h, UIColor+convertAddition.m, UIImage+pixelsAdditions.h, UIImage+pixelsAdditions.m to you project.
+
+then add this to your class:
+#import "UIImage+pixelsAdditions.h"
+#import "UIColor+convertAddition.h"
+
+USAGE: 
+======
+UIColor addition provide conversion a color to the following:
+
+ UIColor to HSB
+ \result Hue        ... 0 to 360
+ \result Saturation ... 0 to 1
+ \result Brightness ... 0 to 1
+
+ \see http://docs.gimp.org/2.6/en/gimp-tool-desaturate.html
+ \result grayLightness  ... 0 to 1
+ \result grayAverage    ... 0 to 1
+ \result grayLuminosity ... 0 to 1
+ 
+ \result red        ... 0 to 1
+ \result green      ... 0 to 1
+ \result blue       ... 0 to 1
+ \result alpha      ... 0 to 1
+
+ UIColor to CMYK
+ \result cyan        ... 0 to 100
+ \result magenta     ... 0 to 100
+ \result yellow      ... 0 to 100
+ \result black       ... 0 to 100
+
+ \brief Return the CIE xyz as property
+ \result x          ... 0 to 1
+ \result y          ... 0 to 1
+ \result z          ... 0 to 1
+
+ \brief Return the CIE Lab property 
+ .... It is buggy and the value don't seems right!!!
+ \result L          ... 0 to 100
+ \result a          ... -xxx to +xxx
+ \result b          ... -xxx to +xxx
+
+\brief Return the CIE Lab property (hunter version base on D65)
+ .... It is buggy and the value don't seems right!!!
+ \result L          ... 0 to 100
+ \result a          ... -xxx to +xxx
+ \result b          ... -xxx to +xxx
+
+
+UIImage addition:
+
+- (CGPoint)whitePoint;
+Find the white point coordinate, CGPoint of an image. 
+
+-(UIColor*)getRGBAatPoint:(CGPoint)point
+Get an UIColor of a point in an image
+
+KNOWN ISSUE: 
+============
+
+CIE Lab doesn't seems to be accurate. I welcome any person who could help with this.
