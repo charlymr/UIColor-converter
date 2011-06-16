@@ -1,0 +1,284 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61E1A84613AA0E9F00730A24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E1A84513AA0E9F00730A24 /* UIKit.framework */; };
+		61E1A84813AA0E9F00730A24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E1A84713AA0E9F00730A24 /* Foundation.framework */; };
+		61E1A84A13AA0E9F00730A24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E1A84913AA0E9F00730A24 /* CoreGraphics.framework */; };
+		61E1A85013AA0EA000730A24 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61E1A84E13AA0EA000730A24 /* InfoPlist.strings */; };
+		61E1A85313AA0EA000730A24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E1A85213AA0EA000730A24 /* main.m */; };
+		61E1A85613AA0EA000730A24 /* ColorConverterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E1A85513AA0EA000730A24 /* ColorConverterAppDelegate.m */; };
+		61E1A85913AA0EA000730A24 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61E1A85713AA0EA000730A24 /* MainWindow.xib */; };
+		61E1A86313AA0EBA00730A24 /* UIColor+convertAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E1A86013AA0EBA00730A24 /* UIColor+convertAddition.m */; };
+		61E1A86413AA0EBA00730A24 /* UIImage+pixelsAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E1A86213AA0EBA00730A24 /* UIImage+pixelsAdditions.m */; };
+		61E1A86E13AA0FBE00730A24 /* testImageWat7x7.png in Resources */ = {isa = PBXBuildFile; fileRef = 61E1A86D13AA0FBE00730A24 /* testImageWat7x7.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		61E1A84113AA0E9F00730A24 /* ColorConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61E1A84513AA0E9F00730A24 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		61E1A84713AA0E9F00730A24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		61E1A84913AA0E9F00730A24 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		61E1A84D13AA0EA000730A24 /* ColorConverter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColorConverter-Info.plist"; sourceTree = "<group>"; };
+		61E1A84F13AA0EA000730A24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		61E1A85113AA0EA000730A24 /* ColorConverter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColorConverter-Prefix.pch"; sourceTree = "<group>"; };
+		61E1A85213AA0EA000730A24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		61E1A85413AA0EA000730A24 /* ColorConverterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorConverterAppDelegate.h; sourceTree = "<group>"; };
+		61E1A85513AA0EA000730A24 /* ColorConverterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorConverterAppDelegate.m; sourceTree = "<group>"; };
+		61E1A85813AA0EA000730A24 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		61E1A85F13AA0EBA00730A24 /* UIColor+convertAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+convertAddition.h"; sourceTree = "<group>"; };
+		61E1A86013AA0EBA00730A24 /* UIColor+convertAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+convertAddition.m"; sourceTree = "<group>"; };
+		61E1A86113AA0EBA00730A24 /* UIImage+pixelsAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+pixelsAdditions.h"; sourceTree = "<group>"; };
+		61E1A86213AA0EBA00730A24 /* UIImage+pixelsAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+pixelsAdditions.m"; sourceTree = "<group>"; };
+		61E1A86D13AA0FBE00730A24 /* testImageWat7x7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImageWat7x7.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		61E1A83E13AA0E9F00730A24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61E1A84613AA0E9F00730A24 /* UIKit.framework in Frameworks */,
+				61E1A84813AA0E9F00730A24 /* Foundation.framework in Frameworks */,
+				61E1A84A13AA0E9F00730A24 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61E1A83613AA0E9F00730A24 = {
+			isa = PBXGroup;
+			children = (
+				61E1A84B13AA0E9F00730A24 /* ColorConverter */,
+				61E1A84413AA0E9F00730A24 /* Frameworks */,
+				61E1A84213AA0E9F00730A24 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61E1A84213AA0E9F00730A24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61E1A84113AA0E9F00730A24 /* ColorConverter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		61E1A84413AA0E9F00730A24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61E1A84513AA0E9F00730A24 /* UIKit.framework */,
+				61E1A84713AA0E9F00730A24 /* Foundation.framework */,
+				61E1A84913AA0E9F00730A24 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61E1A84B13AA0E9F00730A24 /* ColorConverter */ = {
+			isa = PBXGroup;
+			children = (
+				61E1A86D13AA0FBE00730A24 /* testImageWat7x7.png */,
+				61E1A85413AA0EA000730A24 /* ColorConverterAppDelegate.h */,
+				61E1A85513AA0EA000730A24 /* ColorConverterAppDelegate.m */,
+				61E1A85F13AA0EBA00730A24 /* UIColor+convertAddition.h */,
+				61E1A86013AA0EBA00730A24 /* UIColor+convertAddition.m */,
+				61E1A86113AA0EBA00730A24 /* UIImage+pixelsAdditions.h */,
+				61E1A86213AA0EBA00730A24 /* UIImage+pixelsAdditions.m */,
+				61E1A85713AA0EA000730A24 /* MainWindow.xib */,
+				61E1A84C13AA0EA000730A24 /* Supporting Files */,
+			);
+			path = ColorConverter;
+			sourceTree = "<group>";
+		};
+		61E1A84C13AA0EA000730A24 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61E1A84D13AA0EA000730A24 /* ColorConverter-Info.plist */,
+				61E1A84E13AA0EA000730A24 /* InfoPlist.strings */,
+				61E1A85113AA0EA000730A24 /* ColorConverter-Prefix.pch */,
+				61E1A85213AA0EA000730A24 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61E1A84013AA0E9F00730A24 /* ColorConverter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61E1A85C13AA0EA000730A24 /* Build configuration list for PBXNativeTarget "ColorConverter" */;
+			buildPhases = (
+				61E1A83D13AA0E9F00730A24 /* Sources */,
+				61E1A83E13AA0E9F00730A24 /* Frameworks */,
+				61E1A83F13AA0E9F00730A24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColorConverter;
+			productName = ColorConverter;
+			productReference = 61E1A84113AA0E9F00730A24 /* ColorConverter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61E1A83813AA0E9F00730A24 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 61E1A83B13AA0E9F00730A24 /* Build configuration list for PBXProject "ColorConverter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 61E1A83613AA0E9F00730A24;
+			productRefGroup = 61E1A84213AA0E9F00730A24 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				61E1A84013AA0E9F00730A24 /* ColorConverter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61E1A83F13AA0E9F00730A24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61E1A85013AA0EA000730A24 /* InfoPlist.strings in Resources */,
+				61E1A85913AA0EA000730A24 /* MainWindow.xib in Resources */,
+				61E1A86E13AA0FBE00730A24 /* testImageWat7x7.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61E1A83D13AA0E9F00730A24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61E1A85313AA0EA000730A24 /* main.m in Sources */,
+				61E1A85613AA0EA000730A24 /* ColorConverterAppDelegate.m in Sources */,
+				61E1A86313AA0EBA00730A24 /* UIColor+convertAddition.m in Sources */,
+				61E1A86413AA0EBA00730A24 /* UIImage+pixelsAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		61E1A84E13AA0EA000730A24 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61E1A84F13AA0EA000730A24 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		61E1A85713AA0EA000730A24 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61E1A85813AA0EA000730A24 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		61E1A85A13AA0EA000730A24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		61E1A85B13AA0EA000730A24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		61E1A85D13AA0EA000730A24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ColorConverter/ColorConverter-Prefix.pch";
+				INFOPLIST_FILE = "ColorConverter/ColorConverter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		61E1A85E13AA0EA000730A24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ColorConverter/ColorConverter-Prefix.pch";
+				INFOPLIST_FILE = "ColorConverter/ColorConverter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61E1A83B13AA0E9F00730A24 /* Build configuration list for PBXProject "ColorConverter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61E1A85A13AA0EA000730A24 /* Debug */,
+				61E1A85B13AA0EA000730A24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61E1A85C13AA0EA000730A24 /* Build configuration list for PBXNativeTarget "ColorConverter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61E1A85D13AA0EA000730A24 /* Debug */,
+				61E1A85E13AA0EA000730A24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61E1A83813AA0E9F00730A24 /* Project object */;
+}
