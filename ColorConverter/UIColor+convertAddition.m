@@ -113,9 +113,9 @@
     float M[9] =  {     0.4124,  0.3576,  0.1805,
                         0.2126,  0.7152,  0.0722,
                         0.0193,  0.1192,  0.9505    };   
-    toReturn.xCIE = M[1] * r + M[2] * g + M[3] * b; 
-    toReturn.yCIE = M[4] * r + M[5] * g + M[6] * b; 
-    toReturn.zCIE = M[7] * r + M[8] * g + M[9] * b; 
+    toReturn.xCIE = M[0] * r + M[1] * g + M[2] * b;
+    toReturn.yCIE = M[3] * r + M[4] * g + M[5] * b;
+    toReturn.zCIE = M[6] * r + M[7] * g + M[8] * b;
     return toReturn;
 }
 
