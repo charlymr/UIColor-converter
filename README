@@ -58,7 +58,10 @@ Find the white point coordinate, CGPoint of an image.
 -(UIColor*)getRGBAatPoint:(CGPoint)point
 Get an UIColor of a point in an image
 
+Previous non issue seems to haev been corrected:
+(CIE Lab doesn't seems to be accurate. I welcome any person who could help with this.)
+
 KNOWN ISSUE: 
 ============
 
-CIE Lab doesn't seems to be accurate. I welcome any person who could help with this.
+none
