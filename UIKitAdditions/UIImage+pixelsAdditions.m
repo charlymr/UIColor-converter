@@ -33,13 +33,13 @@
     CGContextRelease(context);
     
     // Now your rawData contains the image data in the RGBA8888 pixel format.
-    int byteIndex = (bytesPerRow * point.y) + point.x * bytesPerPixel;
+    NSInteger byteIndex = (bytesPerRow * point.y) + point.x * bytesPerPixel;
     
     CGFloat red   = (rawData[byteIndex]     * 1.0) / 255.0;
     CGFloat green = (rawData[byteIndex + 1] * 1.0) / 255.0;
     CGFloat blue  = (rawData[byteIndex + 2] * 1.0) / 255.0;
     CGFloat alpha = (rawData[byteIndex + 3] * 1.0) / 255.0;
-    byteIndex += 4;
+//    byteIndex += 4;
     
     result =  [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     
@@ -50,8 +50,8 @@
 
 - (CGPoint)whitePoint {
     
-    int kWidth   = self.size.width;
-    int kHeight  = self.size.height;
+    NSUInteger kWidth   = self.size.width;
+    NSUInteger kHeight  = self.size.height;
 
     CGPoint     whiteP      = CGPointZero;
     CGFloat     whitAdd     = 0.0; /// Highest would be  3.0 * 255.0;
@@ -79,18 +79,19 @@
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
     CGContextRelease(context);
             
-    for (int x = 0; x < kWidth; x++) {
-        for (int y = 0; y < kHeight; y++) {
+    for (NSUInteger x = 0; x < kWidth; x++) {
+        for (NSUInteger y = 0; y < kHeight; y++) {
+            
             CGPoint checkPoint = CGPointMake(x, y);
             
             // Now your rawData contains the image data in the RGBA8888 pixel format.
-            int byteIndex = (bytesPerRow * checkPoint.y) + checkPoint.x * bytesPerPixel;
+            NSUInteger byteIndex = (bytesPerRow * checkPoint.y) + checkPoint.x * bytesPerPixel;
             
             CGFloat red   = (rawData[byteIndex]     * 1.0);
             CGFloat green = (rawData[byteIndex + 1] * 1.0);
             CGFloat blue  = (rawData[byteIndex + 2] * 1.0);
             CGFloat alpha = (rawData[byteIndex + 3] * 1.0);
-            byteIndex += 4;
+//            byteIndex += 4;
 
             CGFloat total = (red + green + blue)*alpha;
             

@@ -7,38 +7,37 @@
 
 #import "UIColor+convertAddition.h"
 
-@interface HSBColor : NSObject {
-}
-@property (readwrite) float       hue;
-@property (readwrite) float       saturation;
-@property (readwrite) float       brightness;
+@interface HSBColor : NSObject
 
+@property (readwrite) CGFloat       hue;
+@property (readwrite) CGFloat       saturation;
+@property (readwrite) CGFloat       brightness;
 
-+(HSBColor*)colorWithRed:(float)r Green:(float)g Blue:(float)b;
++(HSBColor*)colorWithRed:(CGFloat)r Green:(CGFloat)g Blue:(CGFloat)b;
 
 +(HSBColor*)colorWithSystemColor:(UIColor*)color;
 
 @end
 
-@interface CIExyzColor : NSObject {
-}
-@property (readwrite) float       xCIE;
-@property (readwrite) float       yCIE;
-@property (readwrite) float       zCIE;
+@interface CIExyzColor : NSObject
 
-+(CIExyzColor*)colorWithRed:(float)r Green:(float)g Blue:(float)b;
+@property (readwrite) CGFloat       xCIE;
+@property (readwrite) CGFloat       yCIE;
+@property (readwrite) CGFloat       zCIE;
+
++(CIExyzColor*)colorWithRed:(CGFloat)r Green:(CGFloat)g Blue:(CGFloat)b;
 
 +(CIExyzColor*)cieXYZcolorWithSystemColor:(UIColor*)color;
 
 @end
 
-@interface CIELabColor : NSObject {
-}
-@property (readwrite) float       lCIE;
-@property (readwrite) float       aCIE;
-@property (readwrite) float       bCIE;
+@interface CIELabColor : NSObject
 
-+(CIELabColor*)colorWithRed:(float)r Green:(float)g Blue:(float)b WhiteRed:(float)rW WhiteGreen:(float)gW WhiteBlue:(float)bW;
+@property (readwrite) CGFloat       lCIE;
+@property (readwrite) CGFloat       aCIE;
+@property (readwrite) CGFloat       bCIE;
+
++(CIELabColor*)colorWithRed:(CGFloat)r Green:(CGFloat)g Blue:(CGFloat)b WhiteRed:(CGFloat)rW WhiteGreen:(CGFloat)gW WhiteBlue:(CGFloat)bW;
 
 +(CIELabColor*)colorWithSystemColor:(UIColor*)color andWhiteColor:(UIColor*)whitePoint;
 
@@ -47,15 +46,13 @@
 //// Utilities class Implementations
 @implementation HSBColor : NSObject
 
-@synthesize brightness, saturation, hue;
-
 //////     http://en.wikipedia.org/wiki/HSL_and_HSV 
 
-+(HSBColor*)colorWithRed:(float)r Green:(float)g Blue:(float)b  {
++(HSBColor*)colorWithRed:(CGFloat)r Green:(CGFloat)g Blue:(CGFloat)b  {
     HSBColor* toReturn = [[[HSBColor alloc] init] autorelease];
 
-    float hue, saturation, brigthness;
-	float min, max, delta;
+    CGFloat hue, saturation, brigthness;
+	CGFloat min, max, delta;
 	min = MIN( r, g);
 	max = MAX( r, g);
     min = MIN( min, b );
@@ -103,16 +100,14 @@
 
 @implementation CIExyzColor : NSObject
 
-@synthesize xCIE, yCIE, zCIE;
-
 // http://en.wikipedia.org/wiki/SRGB_color_space
-+(CIExyzColor*)colorWithRed:(float)r Green:(float)g Blue:(float)b  {
++(CIExyzColor*)colorWithRed:(CGFloat)r Green:(CGFloat)g Blue:(CGFloat)b  {
     CIExyzColor* toReturn = [[[CIExyzColor alloc] init] autorelease];
 
     /// official sRGB specification (IEC 61966-2-1:1999)
-    float M[9] =  {     0.4124,  0.3576,  0.1805,
-                        0.2126,  0.7152,  0.0722,
-                        0.0193,  0.1192,  0.9505    };   
+    CGFloat M[9] =  {       0.4124,  0.3576,  0.1805,
+                            0.2126,  0.7152,  0.0722,
+                            0.0193,  0.1192,  0.9505    };
     toReturn.xCIE = M[0] * r + M[1] * g + M[2] * b;
     toReturn.yCIE = M[3] * r + M[4] * g + M[5] * b;
     toReturn.zCIE = M[6] * r + M[7] * g + M[8] * b;
@@ -127,9 +122,6 @@
 @end
 
 @implementation CIELabColor : NSObject
-
-@synthesize lCIE, aCIE, bCIE;
-
 
 /// http://en.wikipedia.org/wiki/Lab_color_space 
 /// http://en.wikipedia.org/wiki/Lab_color_space
@@ -180,7 +172,7 @@
 }
 
 /// Normal
-+(CIELabColor*)colorWithRed:(float)r Green:(float)g Blue:(float)b WhiteRed:(float)rW WhiteGreen:(float)gW WhiteBlue:(float)bW  {
++(CIELabColor*)colorWithRed:(CGFloat)r Green:(CGFloat)g Blue:(CGFloat)b WhiteRed:(CGFloat)rW WhiteGreen:(CGFloat)gW WhiteBlue:(CGFloat)bW  {
     
     CIELabColor* toReturn = [[[CIELabColor alloc] init] autorelease];
     
@@ -221,7 +213,7 @@
 }
 
 /// Hunter
-+(CIELabColor*)labColorWithRed:(float)r Green:(float)g Blue:(float)b {
++(CIELabColor*)labColorWithRed:(CGFloat)r Green:(CGFloat)g Blue:(CGFloat)b {
     
     CIELabColor* toReturn = [[[CIELabColor alloc] init] autorelease];
     
@@ -272,6 +264,157 @@
 
 @end
 
+@implementation UIColor (RGB_Addition)
+
+-(CGFloat)red {
+    const CGFloat* components = CGColorGetComponents(self.CGColor);
+    CGFloat value   =	components[0];
+    return value;
+}
+
+-(CGFloat)green {
+    const CGFloat* components = CGColorGetComponents(self.CGColor);
+    CGFloat value   =	components[1];
+    return value;
+}
+
+-(CGFloat)blue {
+    const CGFloat* components = CGColorGetComponents(self.CGColor);
+    CGFloat value   =	components[2];
+    return value;
+}
+
+-(CGFloat)alpha {
+    const CGFloat* components = CGColorGetComponents(self.CGColor);
+    CGFloat value   =	components[3];
+    return value;
+}
+
+@end
+
+@implementation UIColor (CMYK_Addition)
+
+-(NSUInteger)cyan {
+    
+    const CGFloat* components = CGColorGetComponents(self.CGColor);
+    NSUInteger R = components[0]*255;
+    NSUInteger G = components[1]*255;
+    NSUInteger B = components[2]*255;
+    
+    CGFloat k = MIN(255-R,MIN(255-G,255-B));
+    CGFloat c = 255*(255-R-k)/(255-k);
+    
+    return  c * 100 / 255;
+}
+
+-(NSUInteger)magenta {
+    
+    const CGFloat* components = CGColorGetComponents(self.CGColor);
+    NSUInteger R = components[0]*255;
+    NSUInteger G = components[1]*255;
+    NSUInteger B = components[2]*255;
+    
+    CGFloat k = MIN(255-R,MIN(255-G,255-B));
+    CGFloat m = 255*(255-G-k)/(255-k);
+    
+    return  m * 100 / 255;
+}
+
+-(NSUInteger)yellow {
+
+    const CGFloat* components = CGColorGetComponents(self.CGColor);
+    NSUInteger R = components[0]*255;
+    NSUInteger G = components[1]*255;
+    NSUInteger B = components[2]*255;
+    
+    CGFloat k = MIN(255-R,MIN(255-G,255-B));
+    CGFloat y = 255*(255-B-k)/(255-k);
+    
+    return  y * 100 / 255;
+}
+
+-(NSUInteger)black {
+    
+    const CGFloat* components = CGColorGetComponents(self.CGColor);
+    NSUInteger R = components[0]*255;
+    NSUInteger G = components[1]*255;
+    NSUInteger B = components[2]*255;
+    
+    CGFloat k = MIN(255-R,MIN(255-G,255-B));
+    
+    return  k * 100 / 255;
+}
+
+@end
+
+@implementation UIColor (HSB_Addition)
+
+-(CGFloat)hue {
+    HSBColor *color = [HSBColor colorWithSystemColor:self];
+    return color.hue;
+}
+
+-(CGFloat)saturation {
+    HSBColor *color = [HSBColor colorWithSystemColor:self];
+    return color.saturation;
+}
+
+-(CGFloat)brightness {
+    HSBColor *color = [HSBColor colorWithSystemColor:self];
+    return color.brightness;
+}
+
+@end
+
+@implementation UIColor (CIE_Addition)
+
+-(CGFloat)cieX {
+    CIExyzColor *color = [CIExyzColor cieXYZcolorWithSystemColor:self];
+    return color.xCIE;
+}
+
+-(CGFloat)cieY {
+    CIExyzColor *color = [CIExyzColor cieXYZcolorWithSystemColor:self];
+    return color.yCIE;
+}
+
+-(CGFloat)cieZ {
+    CIExyzColor *color = [CIExyzColor cieXYZcolorWithSystemColor:self];
+    return color.zCIE;
+}
+
+-(CGFloat)cieLforWhitePoint:(UIColor*)white {
+    CIELabColor *col = [CIELabColor colorWithSystemColor:self andWhiteColor:white];
+    return col.lCIE;
+}
+
+-(CGFloat)cieAforWhitePoint:(UIColor*)white {
+    CIELabColor *col = [CIELabColor colorWithSystemColor:self andWhiteColor:white];
+    return col.aCIE;
+}
+
+-(CGFloat)cieBforWhitePoint:(UIColor*)white {
+    CIELabColor *col = [CIELabColor colorWithSystemColor:self andWhiteColor:white];
+    return col.bCIE;
+}
+
+-(CGFloat)cieHunterL {
+    CIELabColor *col = [CIELabColor labColorWithSystemColor:self];
+    return col.lCIE;
+}
+
+-(CGFloat)cieHunterA {
+    CIELabColor *col = [CIELabColor labColorWithSystemColor:self];
+    return col.aCIE;
+}
+
+-(CGFloat)cieHunterB {
+    CIELabColor *col = [CIELabColor labColorWithSystemColor:self];
+    return col.bCIE;
+}
+
+@end
+
 @implementation UIColor (convertAddition) 
 
 - (NSString*)formatedTextForMode:(enum ColorMode)mode imageWhitePoint:(UIColor*)whitePoint {
@@ -282,11 +425,11 @@
 
         case kShowCMYK: 
         {   
-            int cyan            =   self.cyan;
-            int magenta         =   self.magenta;
-            int yell            =   self.yellow;
-            int black           =   self.black;
-            details = [NSString stringWithFormat:@"C:%d%% - M:%d%% - Y:%d%% - K:%d%%", cyan, magenta, yell, black];
+            NSUInteger cyan            =   self.cyan;
+            NSUInteger magenta         =   self.magenta;
+            NSUInteger yell            =   self.yellow;
+            NSUInteger black           =   self.black;
+            details = [NSString stringWithFormat:@"C:%lu%% - M:%lu%% - Y:%lu%% - K:%lu%%", (unsigned long)cyan, (unsigned long)magenta, (unsigned long)yell, (unsigned long)black];
         }
             break;
         case kShwowHsb: 
@@ -350,23 +493,8 @@
     return [self formatedTextForMode:mode imageWhitePoint:nil];
 }
 
--(float)hue {
-    HSBColor *color = [HSBColor colorWithSystemColor:self];
-    return color.hue;
-}
-
--(float)saturation {
-    HSBColor *color = [HSBColor colorWithSystemColor:self];
-    return color.saturation;
-}
-
--(float)brightness {
-    HSBColor *color = [HSBColor colorWithSystemColor:self];
-    return color.brightness;
-}
-
--(float)grayLightness {
-	float min, max;
+-(CGFloat)grayLightness {
+	CGFloat min, max;
 	min = MIN( self.red, self.green );
 	max = MAX( self.red, self.green );
     min = MIN( min, self.blue );
@@ -375,124 +503,12 @@
     return (max + min)/2;
 }
 
--(float)grayAverage {
+-(CGFloat)grayAverage {
     return (self.red + self.green + self.blue)/3.0;
 }
 
--(float)grayLuminosity {
+-(CGFloat)grayLuminosity {
     return 0.21*self.red + 0.71*self.green + 0.07*self.blue;
-}
-
--(float)red {
-    const CGFloat* components = CGColorGetComponents(self.CGColor);
-    float value   =	components[0]; 
-    return value;
-}
-
--(float)green {
-    const CGFloat* components = CGColorGetComponents(self.CGColor);
-    float value   =	components[1]; 
-    return value;
-}
-
--(float)blue {
-    const CGFloat* components = CGColorGetComponents(self.CGColor);
-    float value   =	components[2]; 
-    return value;
-}
-
--(float)alpha {
-    const CGFloat* components = CGColorGetComponents(self.CGColor);
-    float value   =	components[3]; 
-    return value;
-}
-
--(int)cyan {
-    int R = [self red]*255;
-    int G = [self green]*255;
-    int B = [self blue]*255;
-    
-	float k = MIN(255-R,MIN(255-G,255-B));
-	float c = 255*(255-R-k)/(255-k); 
-    
-    return  c * 100 / 255;
-}
-
--(int)magenta {
-    int R = [self red]*255;
-    int G = [self green]*255;
-    int B = [self blue]*255;
-    
-	float k = MIN(255-R,MIN(255-G,255-B));
-	float m = 255*(255-G-k)/(255-k); 
-    
-    return  m * 100 / 255;
-}
-
--(int)yellow {
-    int R = [self red]*255;
-    int G = [self green]*255;
-    int B = [self blue]*255;
-    
-	float k = MIN(255-R,MIN(255-G,255-B));
-	float y = 255*(255-B-k)/(255-k); 
-
-    return  y * 100 / 255;
-}
-
--(int)black {
-    int R = [self red]*255;
-    int G = [self green]*255;
-    int B = [self blue]*255;
-    
-	float k = MIN(255-R,MIN(255-G,255-B));
-    
-    return  k * 100 / 255;
-}
-
--(float)cieX {
-    CIExyzColor *color = [CIExyzColor cieXYZcolorWithSystemColor:self];
-    return color.xCIE;
-}
-
--(float)cieY {
-    CIExyzColor *color = [CIExyzColor cieXYZcolorWithSystemColor:self];
-    return color.yCIE;
-}
-
--(float)cieZ {
-    CIExyzColor *color = [CIExyzColor cieXYZcolorWithSystemColor:self];
-    return color.zCIE;
-}
-
--(float)cieLforWhitePoint:(UIColor*)white {
-    CIELabColor *col = [CIELabColor colorWithSystemColor:self andWhiteColor:white];
-    return col.lCIE;
-}
-
--(float)cieAforWhitePoint:(UIColor*)white {
-    CIELabColor *col = [CIELabColor colorWithSystemColor:self andWhiteColor:white];
-    return col.aCIE;
-}
-
--(float)cieBforWhitePoint:(UIColor*)white {
-    CIELabColor *col = [CIELabColor colorWithSystemColor:self andWhiteColor:white];
-    return col.bCIE;
-}
-
--(float)cieHunterL {
-    CIELabColor *col = [CIELabColor labColorWithSystemColor:self];
-    return col.lCIE;
-}
-
--(float)cieHunterA {
-    CIELabColor *col = [CIELabColor labColorWithSystemColor:self];
-    return col.aCIE;
-}
-
--(float)cieHunterB {
-    CIELabColor *col = [CIELabColor labColorWithSystemColor:self];
-    return col.bCIE;
 }
 
 @end
